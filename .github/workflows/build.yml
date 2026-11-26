@@ -21,9 +21,9 @@ on:
           - beta
           - debug
       host_ref:
-        description: Optional entinyGram/android ref (defaults to manifest/sources.json host.commit)
+        description: Optional entinyGram/android ref (defaults to main)
         required: false
-        default: ''
+        default: 'main'
         type: string
       publish_release:
         description: Publish APK to GitHub Releases
@@ -65,11 +65,7 @@ jobs:
         env:
           INPUT_HOST_REF: ${{ inputs.host_ref }}
         run: |
-          if [ -n "$INPUT_HOST_REF" ]; then
-            ref="$INPUT_HOST_REF"
-          else
-            ref=$(jq -r '.host.commit // "main"' extera-src/manifest/sources.json)
-          fi
+          ref="${INPUT_HOST_REF:-main}"
           echo "ref=$ref" >> "$GITHUB_OUTPUT"
           echo "Using entinyGram/android ref: $ref"
 
