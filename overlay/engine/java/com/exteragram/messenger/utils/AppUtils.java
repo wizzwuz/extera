@@ -76,7 +76,19 @@ public class AppUtils {
         org.telegram.messenger.FileLog.e(t);
     }
 
+    public static void log(String msg) {
+        org.telegram.messenger.FileLog.d(msg);
+    }
+
+    public static void log(String msg, Throwable t) {
+        org.telegram.messenger.FileLog.e(msg, t);
+    }
+
     public static void log(Object o) {
-        org.telegram.messenger.FileLog.d(String.valueOf(o));
+        if (o instanceof Throwable) {
+            log((Throwable) o);
+        } else {
+            org.telegram.messenger.FileLog.d(String.valueOf(o));
+        }
     }
 }
