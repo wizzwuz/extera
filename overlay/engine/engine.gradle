@@ -17,6 +17,13 @@ tasks.withType(JavaCompile).configureEach {
     sourceCompatibility = JavaVersion.VERSION_17.toString()
     targetCompatibility = JavaVersion.VERSION_17.toString()
 }
+tasks.matching { it.name.contains("Kotlin") }.configureEach {
+    try {
+        kotlinOptions {
+            jvmTarget = "17"
+        }
+    } catch (Throwable ignored) {}
+}
 android.buildTypes.configureEach {
     proguardFile new File(engineRoot, 'proguard-rules.pro')
 }

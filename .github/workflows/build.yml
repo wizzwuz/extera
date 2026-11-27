@@ -210,9 +210,11 @@ jobs:
             echo 'org.gradle.workers.max=2'
             echo 'org.gradle.jvmargs=-Xmx4096m -XX:MaxMetaspaceSize=1024m -Dfile.encoding=UTF-8 -XX:+UseG1GC'
             echo 'android.native.buildOutput=verbose'
+            echo 'kotlin.jvm.target.validation.mode=warning'
           } >> ~/.gradle/gradle.properties
           sed -i 's/-Xmx8g/-Xmx4096m/g' entinygram/worktree/gradle.properties || true
           sed -i 's/org.gradle.parallel=true/org.gradle.parallel=false/g' entinygram/worktree/gradle.properties || true
+          echo 'kotlin.jvm.target.validation.mode=warning' >> entinygram/worktree/gradle.properties || true
 
       - name: Install libclang
         timeout-minutes: 10
