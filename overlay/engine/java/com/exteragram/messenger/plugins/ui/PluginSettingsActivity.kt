@@ -6,17 +6,24 @@ import com.exteragram.messenger.plugins.models.SettingItem
 import desu.inugram.ui.settings.PythonPluginSettingsActivity
 import org.telegram.messenger.AndroidUtilities
 
-class PluginSettingsActivity @JvmOverloads constructor(
-    plugin: Plugin,
-    title: String? = null,
-    settings: List<SettingItem> = emptyList(),
-    onBackPressed: Any? = null,
-    target: String? = null,
-) : PythonPluginSettingsActivity(plugin, title ?: target, settings, onBackPressed as? Runnable) {
+class PluginSettingsActivity : PythonPluginSettingsActivity {
+
+    @JvmOverloads
+    constructor(
+        plugin: Plugin,
+        targetSettingName: String? = null,
+    ) : super(plugin, targetSettingName, emptyList(), null)
+
+    @JvmOverloads
+    constructor(
+        plugin: Plugin,
+        title: String?,
+        settingsList: List<SettingItem>?,
+        createSubFragmentCallback: Any?,
+        targetSettingName: String? = null,
+    ) : super(plugin, title ?: targetSettingName, settingsList ?: emptyList(), createSubFragmentCallback as? Runnable)
 
     constructor(pluginId: String) : this(requirePlugin(pluginId))
-
-    constructor(plugin: Plugin, target: String?) : this(plugin, null, emptyList(), null, target)
 
     fun setSettingsLinkPrefix(prefix: String?): PluginSettingsActivity = this
 
