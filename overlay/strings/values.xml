@@ -206,4 +206,7 @@
     <string name="PluginsPySdkStartFailed">SDK failed to start, restart the app</string>
     <string name="PluginsPySdkStarting">Starting…</string>
     <string name="RestartPluginSystemToApplyUpdate">Update loaded, restart Plugin Engine to apply</string>
+    <string name="CheckingForUpdates">Checking for updates…</string>
+    <string name="LatestVersionInstalled">Latest version is installed</string>
+    <string name="LoadingUpdate">Downloading update…</string>
 </resources>

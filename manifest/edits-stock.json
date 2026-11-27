@@ -3,7 +3,7 @@
     {
       "path": "worktree/TMessagesProj/src/main/java/org/telegram/messenger/NotificationCenter.java",
       "before": "    public static final int communityPendingRequestsUpdate = totalEvents++;\n    public static final int communitySwitchedCollapsed = totalEvents++;\n    public static final int feedNeedReload = totalEvents++;\n\n    public static boolean alreadyLogged;\n\n",
-      "after": "    public static final int communityPendingRequestsUpdate = totalEvents++;\n    public static final int communitySwitchedCollapsed = totalEvents++;\n    public static final int feedNeedReload = totalEvents++;\n    public static final int pluginIsNotResponding = totalEvents++;\n    public static final int pluginMenuItemsUpdated = totalEvents++;\n    public static final int pluginsUpdated = totalEvents++;\n    public static final int pluginSettingsRegistered = totalEvents++;\n    public static final int pluginSettingsUnregistered = totalEvents++;\n\n    public static boolean alreadyLogged;\n\n"
+      "after": "    public static final int communityPendingRequestsUpdate = totalEvents++;\n    public static final int communitySwitchedCollapsed = totalEvents++;\n    public static final int feedNeedReload = totalEvents++;\n    public static final int pluginIsNotResponding = totalEvents++;\n    public static final int pluginMenuItemsUpdated = totalEvents++;\n    public static final int pluginsUpdated = totalEvents++;\n    public static final int pluginSettingsRegistered = totalEvents++;\n    public static final int pluginSettingsUnregistered = totalEvents++;\n    public static final int pluginsPySdkInfoChanged = totalEvents++;\n\n    public static boolean alreadyLogged;\n\n"
     },
     {
       "path": "worktree/TMessagesProj/src/main/java/org/telegram/ui/Components/UItem.java",
@@ -128,6 +128,21 @@
       "path": "worktree/TMessagesProj/src/main/java/org/telegram/ui/Components/UItem.java",
       "before": "    public static UItem asShadow(CharSequence text) {\n",
       "after": "    public UItem setTransparent(boolean value) {\n        this.transparent = value;\n        return this;\n    }\n\n    public static UItem asShadow(CharSequence text) {\n"
+    },
+    {
+      "path": "worktree/TMessagesProj/src/main/java/org/telegram/messenger/Utilities.java",
+      "before": "    public static volatile DispatchQueue videoPlayerQueue;\n",
+      "after": "    public static volatile DispatchQueue videoPlayerQueue;\n    public static volatile DispatchQueue pluginsQueue;\n"
+    },
+    {
+      "path": "worktree/TMessagesProj/src/main/java/org/telegram/messenger/BuildVars.java",
+      "before": "    public static String BUILD_VERSION_STRING = BuildConfig.BUILD_VERSION_STRING;\n",
+      "after": "    public static String BUILD_VERSION_STRING = BuildConfig.BUILD_VERSION_STRING;\n    public static int BUILD_VERSION = 0;\n"
+    },
+    {
+      "path": "worktree/TMessagesProj/src/main/java/org/telegram/messenger/FileLoader.java",
+      "before": "    public File getPathToAttach(TLObject attach) {\n        return getPathToAttach(attach, null, false);\n    }\n",
+      "after": "    public File getPathToAttach(TLObject attach) {\n        return getPathToAttach(attach, null, false);\n    }\n\n    public File getPathToAttachForAccount(TLObject attach) {\n        return getPathToAttach(attach, null, false);\n    }\n"
     }
   ]
 }

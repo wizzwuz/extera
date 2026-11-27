@@ -72,4 +72,11 @@ public class AppUtils {
             return 0;
         }
     }
+    public static void log(Throwable t) {
+        org.telegram.messenger.FileLog.e(t);
+    }
+
+    public static void log(Object o) {
+        org.telegram.messenger.FileLog.d(String.valueOf(o));
+    }
 }

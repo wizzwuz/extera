@@ -118,6 +118,10 @@
         "291426dcca0d1fe763be13dca25a5a71af54ceffd0e067f0d8d523021a03411f",
         "06e5d983e4b062236cc1a62b5683ab7ab4b4c94f300b4aeb2593e0bf658383ac"
       ]
+    },
+    {
+      "source": "overlay/engine/java/com/exteragram/messenger/utils/network/ExteraHttpClient.kt",
+      "target": "extera-plugins/engine/java/com/exteragram/messenger/utils/network/ExteraHttpClient.kt"
     }
   ],
   "resources": [

@@ -1,5 +1,6 @@
 package desu.inugram.ui.settings
 
+import android.view.View
 import com.exteragram.messenger.plugins.PluginsController
 import org.telegram.messenger.LocaleController
 import org.telegram.messenger.R
@@ -10,6 +11,8 @@ class PythonPluginPermissionsActivity(private val pluginId: String) : SettingsPa
     private val controller get() = PluginsController.getInstance()
 
     override fun getTitle(): CharSequence = LocaleController.getString(R.string.PluginPermissions)
+
+    override fun onClick(item: UItem, view: View, position: Int, x: Float, y: Float) {}
 
     override fun fillItems(items: ArrayList<UItem>, adapter: UniversalAdapter) {
         val plugin = controller.plugins[pluginId]

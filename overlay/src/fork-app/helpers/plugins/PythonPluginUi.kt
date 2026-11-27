@@ -25,14 +25,13 @@ object PythonPluginUi {
 
     @JvmStatic
     fun openPluginSettings(plugin: Plugin?, fragment: BaseFragment?, targetSetting: String?) {
-        val target = fragment ?: org.telegram.ui.LaunchActivity.getSafeLastFragment() ?: return
         val resolved = plugin ?: return
-        PluginsController.getInstance().openPluginSettings(target, resolved.getId(), targetSetting)
+        PluginsController.openPluginSettings(resolved.getId(), targetSetting)
     }
 
     @JvmStatic
     fun openPluginSettingsById(pluginId: String, fragment: BaseFragment) {
-        PluginsController.getInstance().openPluginSettings(fragment, pluginId, null)
+        PluginsController.openPluginSettings(pluginId)
     }
 
     @JvmStatic
@@ -49,7 +48,6 @@ object PythonPluginUi {
             val source = if (textual) runCatching { file.readText() }.getOrNull() ?: "" else ""
             val assets = if (textual) runCatching { PluginAssetsParser.parse(source) }.getOrDefault(emptyList()) else emptyList()
             val obfuscation = if (textual) ObfuscationDetector.detect(source.substring(0, PluginAssetsParser.findFooter(source))) else null
-            val meta = PluginsController.getInstance().plugins.values.firstOrNull()
             val manifest = PluginManifest(
                 name = file.nameWithoutExtension.ifBlank { LocaleController.getString(R.string.PluginsInstallTitle) },
                 author = null,
@@ -75,11 +73,10 @@ object PythonPluginUi {
                     onInstall = {},
                     externalPermissions = emptyList(),
                     externalWarning = null,
-                    onExternalInstall = { _, enable ->
+                    onExternalInstall = { _, _ ->
                         val engine = PluginsController.getInstance().getPluginEngine("python")
                         if (engine != null) {
-                            val params = com.exteragram.messenger.plugins.ui.components.InstallPluginBottomSheet.PluginInstallParams.untrusted(filePath)
-                            engine.loadPluginFromFile(filePath, params, enable) { _, error ->
+                            engine.loadPluginFromFile(filePath, null, { error: String? ->
                                 AndroidUtilities.runOnUIThread {
                                     if (!error.isNullOrBlank()) {
                                         BulletinFactory.of(fragment).createErrorBulletin(error).show()
@@ -87,7 +84,7 @@ object PythonPluginUi {
                                         PluginsController.getInstance().notifyPluginsChanged()
                                     }
                                 }
-                            }
+                            }, null)
                         }
                     },
                 ).show()

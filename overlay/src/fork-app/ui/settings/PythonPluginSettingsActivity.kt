@@ -171,8 +171,8 @@ open class PythonPluginSettingsActivity(
                     reloadRows()
                 }
             }
-            is InputSetting -> promptInput(row.text, row.key, row.defaultValue, false, row.maxLength, row.onChangeCallback)
-            is EditTextSetting -> promptInput(row.hint ?: row.key, row.key, row.defaultValue, row.multiline, row.maxLength, row.onChangeCallback)
+            is InputSetting -> promptInput(row.text, row.key ?: "", row.defaultValue, false, 0, row.onChangeCallback)
+            is EditTextSetting -> promptInput(row.hint ?: row.key, row.key ?: "", row.defaultValue, row.multiline, row.maxLength, row.onChangeCallback)
             is TextSetting -> {
                 if (row.createSubFragmentCallback != null) {
                     try {
