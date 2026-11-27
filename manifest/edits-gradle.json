@@ -24,6 +24,11 @@
       "path": "worktree/TMessagesProj_App/build.gradle",
       "before": "        include '**/liblsplant.so'\n    }\n    into inuTestJniLibsDir\n}\n",
       "after": "        include '**/liblsplant.so'\n    }\n    into inuTestJniLibsDir\n}\n\napply from: '../../extera-plugins/engine/engine.gradle'\n"
+    },
+    {
+      "path": "worktree/TMessagesProj_App/build.gradle",
+      "before": "    compileOptions {\n        sourceCompatibility JavaVersion.VERSION_1_8\n        targetCompatibility JavaVersion.VERSION_1_8\n\n        coreLibraryDesugaringEnabled true\n    }\n",
+      "after": "    compileOptions {\n        sourceCompatibility JavaVersion.VERSION_17\n        targetCompatibility JavaVersion.VERSION_17\n\n        coreLibraryDesugaringEnabled true\n    }\n"
     }
   ]
 }

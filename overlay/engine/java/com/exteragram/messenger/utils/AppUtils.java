@@ -28,26 +28,26 @@ public class AppUtils {
 
     public static boolean compareVersions(String operator, String version1, String version2) {
         int cmp = compareVersionValues(version1, version2);
-        return switch (operator) {
-            case "==" -> cmp == 0;
-            case ">" -> cmp > 0;
-            case "<" -> cmp < 0;
-            case ">=" -> cmp >= 0;
-            case "<=" -> cmp <= 0;
-            default -> throw new IllegalArgumentException("Unsupported operator: " + operator);
-        };
+        switch (operator) {
+            case "==": return cmp == 0;
+            case ">": return cmp > 0;
+            case "<": return cmp < 0;
+            case ">=": return cmp >= 0;
+            case "<=": return cmp <= 0;
+            default: throw new IllegalArgumentException("Unsupported operator: " + operator);
+        }
     }
 
     public static boolean compareVersions(String operator, int version1, int version2) {
         int cmp = Integer.compare(version1, version2);
-        return switch (operator) {
-            case "==" -> cmp == 0;
-            case ">" -> cmp > 0;
-            case "<" -> cmp < 0;
-            case ">=" -> cmp >= 0;
-            case "<=" -> cmp <= 0;
-            default -> throw new IllegalArgumentException("Unsupported operator: " + operator);
-        };
+        switch (operator) {
+            case "==": return cmp == 0;
+            case ">": return cmp > 0;
+            case "<": return cmp < 0;
+            case ">=": return cmp >= 0;
+            case "<=": return cmp <= 0;
+            default: throw new IllegalArgumentException("Unsupported operator: " + operator);
+        }
     }
 
     public static int compareVersionValues(String version1, String version2) {

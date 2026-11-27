@@ -12,7 +12,7 @@
 | fork | `src/fork/ui/settings/PluginInfoActivity.kt` | 2 | +2 |
 | fork | `src/fork/ui/settings/PluginInstallSheet.kt` | 11 | +48 |
 | fork | `src/fork/ui/settings/PluginsActivity.kt` | 10 | +74 |
-| gradle | `worktree/TMessagesProj_App/build.gradle` | 4 | +29 |
+| gradle | `worktree/TMessagesProj_App/build.gradle` | 5 | +29 |
 | gradle | `worktree/build.gradle` | 1 | +2 |
 | stock | `worktree/TMessagesProj/src/main/java/org/telegram/messenger/AndroidUtilities.java` | 4 | +4 |
 | stock | `worktree/TMessagesProj/src/main/java/org/telegram/messenger/BuildVars.java` | 1 | +1 |
